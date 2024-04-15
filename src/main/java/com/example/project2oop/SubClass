@@ -1,0 +1,43 @@
+package com.example.project2oop;
+
+// 2.1.1 Creating a SubClass
+public class SubClass extends SuperClass {
+    void accessSuperClassVarFromChild() {
+        int privateN = getPrivateN();
+        System.out.println("Accessing superclass instance variables:");
+        System.out.println("Private variable: " + getPrivateN()); // 2.1.3 We cannot access the private superclass
+        // instance variable directly from the child class due to its private access modifier. So I created getPrivateN method.
+        System.out.println("Protected variable: " + protectedN);
+        System.out.println("Public variable: " + publicN);
+    }
+
+    // 2.1.4 Write overloaded methods.
+    void overloadingMethod(String message, int n) {
+        for (int i = 0; i < n; i++) {
+            System.out.println("Message: " + message);
+        }
+    }
+
+    // 2.1.5 Write and call overridden methods.
+    @Override
+    void display() {
+        System.out.println("SubClass method");
+    }
+
+    // 2.1.6 Use of super keyword.
+    @Override
+    void printMethod() {
+        super.printMethod();
+        System.out.println("Output from SubClass");
+    }
+
+    // 2.1.7 Use of super keyword for parent constructor call
+    SubClass() {
+        super();
+        System.out.println("SubClass constructor");
+    }
+    SubClass(int n){
+        super(n);
+        System.out.println("SubClass constructor with value: " + n);
+    }
+}
